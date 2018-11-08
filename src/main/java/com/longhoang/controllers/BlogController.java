@@ -45,4 +45,12 @@ public class BlogController {
     public ModelAndView viewUpdateForm(@PathVariable int id) {
         return new ModelAndView("update", "blog", blogService.findById(id));
     }
+
+    @PostMapping("/blog/update")
+    public ModelAndView update(@ModelAttribute("blog") Blog blog) {
+        blogService.save(blog);
+        ModelAndView modelAndView = new ModelAndView("update", "blog", blog);
+        modelAndView.addObject("message", "Updated successfully");
+        return modelAndView;
+    }
 }
