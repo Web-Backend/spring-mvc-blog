@@ -14,13 +14,14 @@
 <table style="border: blue solid 1px">
     <tr>
         <th>Title</th>
-        <th>update</th>
+        <th>edit</th>
+        <
         <th>view</th>
     </tr>
     <th:block th:each="blog : ${blogs}">
         <tr>
             <td th:text="${blog.title}"></td>
-            <td><a th:href="@{/blog/update/__${blog.id}__ }">update</a></td>
+            <td><a th:href="@{/blog/edit/__${blog.id}__ }">edit</a></td>
             <td><a th:href="@{/blog/view/__${blog.id}__ }">view</a></td>
         </tr>
     </th:block>
