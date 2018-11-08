@@ -5,6 +5,10 @@
     <title>Long's Blog</title>
 </head>
 <body>
+<h1 th:if="${messages}">
+    <p th:text="${messages}"></p>
+</h1>
+<a href="/blog/create">Create a post</a>
 <h1 style="color: yellowgreen">Hello my friend</h1>
 <h3>Posts</h3>
 <table style="border: blue solid 1px">
