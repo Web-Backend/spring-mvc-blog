@@ -1,10 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Long's Blog</title>
 </head>
 <body>
-Hello world cai xem nao
+<h1 style="color: yellowgreen">Hello my friend</h1>
+<h3>Posts</h3>
+<table style="border: blue solid 1px">
+    <tr>
+        <th>Title</th>
+    </tr>
+    <th:block th:each="blog : ${blogs}">
+        <tr>
+            <td th:text="${blog.title}"></td>
+        </tr>
+    </th:block>
+</table>
 </body>
 </html>
