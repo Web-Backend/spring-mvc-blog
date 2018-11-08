@@ -1,5 +1,9 @@
 package com.longhoang;
 
+import com.longhoang.repository.BlogRepository;
+import com.longhoang.repository.impl.BlogRepositoryImpl;
+import com.longhoang.services.BlogService;
+import com.longhoang.services.impl.BlogServiceImpl;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
@@ -108,4 +112,13 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter implements Applic
         return properties;
     }
 
+    @Bean
+    public BlogRepository blogRepository() {
+        return new BlogRepositoryImpl();
+    }
+
+    @Bean
+    public BlogService blogService() {
+        return new BlogServiceImpl();
+    }
 }
