@@ -40,4 +40,9 @@ public class BlogController {
     public ModelAndView viewDetail(@PathVariable int id) {
         return new ModelAndView("view", "blog", blogService.findById(id));
     }
+
+    @GetMapping("/blog/update/{id}")
+    public ModelAndView viewUpdateForm(@PathVariable int id) {
+        return new ModelAndView("update", "blog", blogService.findById(id));
+    }
 }
