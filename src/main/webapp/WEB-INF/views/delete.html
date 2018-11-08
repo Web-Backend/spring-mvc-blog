@@ -7,11 +7,12 @@
 <body>
 <a href="/home">Back to home</a>
 <th:block th:if="${message}">
-    <p th:text="${message}"></p>
+    <h1 style="color: chocolate;" th:text="${message}"></h1>
 </th:block>
 <h1>Are you sure?</h1>
 <form th:action="@{/blog/delete}" th:object="${blog}" method="post" novalidate="novalidate">
-    <div>
+    <div th:if="${blog}">
+        <input type="hidden" th:field="*{id}">
         <div>
             <label>Title: </label>
             <input type="text" th:field="*{title}" disabled="disabled">
@@ -20,7 +21,7 @@
             <label>Content: </label>
             <input type="text" th:field="*{content}" disabled="disabled">
         </div>
-        <input type="submit" value="delete">
+        <input type="submit" value="Delete">
     </div>
 </form>
 </body>

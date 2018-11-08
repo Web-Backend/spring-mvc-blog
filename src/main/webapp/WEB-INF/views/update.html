@@ -11,6 +11,7 @@
 </th:block>
 <h1>Create Post</h1>
 <form th:action="@{/blog/update}" th:object="${blog}" method="post" novalidate="novalidate">
+    <input type="hidden" th:field="*{id}">
     <div>
         <label>Title: </label>
         <input type="text" th:field="*{title}">
