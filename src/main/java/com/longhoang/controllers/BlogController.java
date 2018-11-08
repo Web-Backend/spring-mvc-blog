@@ -53,4 +53,15 @@ public class BlogController {
         modelAndView.addObject("message", "Updated successfully");
         return modelAndView;
     }
+
+    @GetMapping("/blog/delete/{id}")
+    public ModelAndView modelAndView(@PathVariable int id) {
+        return new ModelAndView("delete", "blog", blogService.findById(id));
+    }
+
+    @PostMapping("/blog/delete")
+    public ModelAndView modelAndView(@ModelAttribute("blog") Blog blog) {
+        blogService.remove(blog.getId());
+        return new ModelAndView("delete", "message", "Deleted successfully");
+    }
 }
