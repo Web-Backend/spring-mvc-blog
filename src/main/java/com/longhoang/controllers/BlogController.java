@@ -35,4 +35,9 @@ public class BlogController {
         modelAndView.addObject("message", "Created successfully");
         return modelAndView;
     }
+
+    @GetMapping("/blog/view/{id}")
+    public ModelAndView viewDetail(@PathVariable int id) {
+        return new ModelAndView("view", "blog", blogService.findById(id));
+    }
 }
